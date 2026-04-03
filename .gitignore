@@ -9,13 +9,8 @@ Thumbs.db
 *.swp
 *.swo
 
-# Backend (Gradle/Spring Boot)
-backend/.gradle/
-backend/build/
-backend/out/
-!backend/gradle/wrapper/gradle-wrapper.jar
-!backend/gradlew
-!backend/gradlew.bat
+# Backend (Maven/Spring Boot)
+backend/target/
 
 # Frontend (Angular/Node)
 frontend/node_modules/
@@ -33,7 +28,6 @@ logs/
 
 # Test coverage
 frontend/coverage/
-backend/build/reports/
 
 # Docker
 .docker/
