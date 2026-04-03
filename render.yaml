@@ -1,11 +1,25 @@
 services:
   - type: web
     name: nyats-api
-    runtime: java
-    buildCommand: cd backend && mvn -B package -DskipTests
-    startCommand: java -jar backend/target/api-0.0.1-SNAPSHOT.jar
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /api/v1/health
     envVars:
-      - key: MONGODB_URI
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SPRING_DATA_MONGODB_URI
+        sync: false
+      - key: SPRING_DATA_REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLOUDINARY_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: RESEND_API_KEY
         sync: false
       - key: PORT
         value: 8080
