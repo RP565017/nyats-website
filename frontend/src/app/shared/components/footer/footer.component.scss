@@ -1,0 +1,55 @@
+.footer {
+  background: #1a237e;
+  color: white;
+  padding: 3rem 0 1rem;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .footer-brand {
+    h3 { color: white; margin-bottom: 0.75rem; }
+    p { color: rgba(255,255,255,0.7); line-height: 1.6; }
+  }
+
+  h4 { color: #f57c00; margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+      &:hover { color: white; }
+    }
+  }
+
+  .footer-contact p { color: rgba(255,255,255,0.7); margin: 0.4rem 0; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1rem;
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.875rem;
+  }
+}

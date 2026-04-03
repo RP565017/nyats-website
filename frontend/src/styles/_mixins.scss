@@ -1,0 +1,38 @@
+@use 'variables' as *;
+
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card {
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: 1.5rem;
+}
+
+@mixin button-primary {
+  background: $color-primary;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: $border-radius;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover { background: $color-primary-light; }
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == sm { @media (max-width: $breakpoint-sm) { @content; } }
+  @else if $breakpoint == md { @media (max-width: $breakpoint-md) { @content; } }
+  @else if $breakpoint == lg { @media (max-width: $breakpoint-lg) { @content; } }
+}

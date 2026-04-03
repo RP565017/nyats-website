@@ -1,0 +1,55 @@
+<div class="events-page">
+  <div class="page-header">
+    <div class="container">
+      <h1>Events</h1>
+      <p>Join us for cultural celebrations, educational programs, and community gatherings</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="filters">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search events..." class="search-input" (keyup.enter)="search()">
+      <select [(ngModel)]="selectedType" class="type-select" (change)="search()">
+        <option value="">All Types</option>
+        <option value="CULTURAL">Cultural</option>
+        <option value="RELIGIOUS">Religious</option>
+        <option value="SOCIAL">Social</option>
+        <option value="EDUCATIONAL">Educational</option>
+        <option value="SPORTS">Sports</option>
+      </select>
+      <button class="btn btn-primary" (click)="search()">Search</button>
+    </div>
+
+    @if (loading()) {
+      <div class="loading">Loading events...</div>
+    } @else {
+      <div class="events-grid">
+        @for (event of events(); track event.id) {
+          <div class="event-card">
+            @if (event.coverImageUrl) {
+              <img [src]="event.coverImageUrl" [alt]="event.title" class="event-img">
+            } @else {
+              <div class="event-img-placeholder">🎭</div>
+            }
+            <div class="event-info">
+              <div class="event-meta">
+                <span class="event-type">{{ event.type }}</span>
+                @if (event.featured) { <span class="featured-badge">⭐ Featured</span> }
+              </div>
+              <h3>{{ event.title }}</h3>
+              <p class="event-date">📅 {{ event.startDate | date:'mediumDate' }}</p>
+              @if (event.venue?.city) {
+                <p class="event-venue">📍 {{ event.venue.name }}, {{ event.venue.city }}</p>
+              }
+              <p class="event-desc">{{ event.shortDescription || (event.description | slice:0:100) }}...</p>
+              <a [routerLink]="['/events', event.slug]" class="btn btn-outline">View Details</a>
+            </div>
+          </div>
+        }
+        @if (events().length === 0) {
+          <p class="no-events">No events found. Check back soon!</p>
+        }
+      </div>
+      <app-pagination [currentPage]="currentPage()" [totalPages]="totalPages()" (pageChange)="onPageChange($event)"></app-pagination>
+    }
+  </div>
+</div>
