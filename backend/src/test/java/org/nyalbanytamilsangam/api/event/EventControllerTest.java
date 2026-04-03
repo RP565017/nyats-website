@@ -1,14 +1,14 @@
 package org.nyalbanytamilsangam.api.event;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import org.nyalbanytamilsangam.api.common.dto.ApiResponse;
 import org.nyalbanytamilsangam.api.common.dto.PagedResponse;
 import org.nyalbanytamilsangam.api.event.controller.EventController;
 import org.nyalbanytamilsangam.api.event.dto.EventResponse;
 import org.nyalbanytamilsangam.api.event.model.EventStatus;
 import org.nyalbanytamilsangam.api.event.model.EventType;
 import org.nyalbanytamilsangam.api.event.service.EventService;
+import org.nyalbanytamilsangam.api.security.CustomUserDetailsService;
+import org.nyalbanytamilsangam.api.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -30,6 +30,12 @@ class EventControllerTest {
 
     @MockBean
     private EventService eventService;
+
+    @MockBean
+    private JwtTokenProvider jwtTokenProvider;
+
+    @MockBean
+    private CustomUserDetailsService customUserDetailsService;
 
     @Test
     @WithMockUser

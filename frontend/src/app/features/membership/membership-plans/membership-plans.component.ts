@@ -23,7 +23,7 @@ import { NotificationService } from '../../../core/services/notification.service
             <div class="plan-card" [class.popular]="plan.type === 'FAMILY'">
               @if (plan.type === 'FAMILY') { <div class="popular-badge">Most Popular</div> }
               <h3>{{ plan.name }}</h3>
-              <div class="price"><span class="amount">${{ plan.price }}</span><span class="period">/year</span></div>
+              <div class="price"><span class="amount">&#36;{{ plan.price }}</span><span class="period">/year</span></div>
               <p>{{ plan.description }}</p>
               <button class="btn-join" (click)="joinPlan(plan)">Join Now</button>
             </div>

@@ -47,7 +47,11 @@
                 }
               ],
               "outputHashing": "all",
-              "optimization": true
+              "optimization": {
+                "fonts": {
+                  "inline": false
+                }
+              }
             },
             "development": {
               "optimization": false,
