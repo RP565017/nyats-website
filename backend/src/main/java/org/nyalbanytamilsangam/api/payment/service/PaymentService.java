@@ -71,7 +71,19 @@ public class PaymentService {
     }
 
     public void handleWebhook(String payload, String signature) {
-        // TODO: verify Stripe signature and update payment status
-        log.info("Stripe webhook received");
+        if (signature == null || signature.isBlank()) {
+            log.warn("Stripe webhook received without signature - ignoring");
+            return;
+        }
+        // TODO: uncomment once STRIPE_WEBHOOK_SECRET is configured in production
+        // try {
+        //     com.stripe.model.Event event = com.stripe.net.Webhook.constructEvent(
+        //             payload, signature, stripeWebhookSecret);
+        //     log.info("Stripe webhook event: {}", event.getType());
+        // } catch (com.stripe.exception.SignatureVerificationException e) {
+        //     log.error("Invalid Stripe webhook signature", e);
+        //     throw new BadRequestException("Invalid webhook signature");
+        // }
+        log.info("Stripe webhook received (signature present)");
     }
 }

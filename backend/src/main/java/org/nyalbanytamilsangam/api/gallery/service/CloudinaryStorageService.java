@@ -21,8 +21,10 @@ public class CloudinaryStorageService {
         this.cloudinary = new Cloudinary(cloudinaryUrl);
     }
 
+    private static final long MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
+
     public GalleryItem uploadImage(MultipartFile file, String folder) throws IOException {
-        if (file.getSize() > 10 * 1024 * 1024) {
+        if (file.getSize() > MAX_FILE_SIZE_BYTES) {
             throw new IllegalArgumentException("File size exceeds 10MB limit");
         }
         Map<?, ?> result = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.asMap(

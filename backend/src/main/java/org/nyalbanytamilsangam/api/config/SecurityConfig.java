@@ -28,6 +28,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+            // CSRF is disabled because this is a stateless REST API that uses JWT Bearer tokens,
+            // not browser session cookies. CSRF protection is not required for token-based auth.
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> {})
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
