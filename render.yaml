@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: nyats-api
+    runtime: java
+    buildCommand: cd backend && mvn -B package -DskipTests
+    startCommand: java -jar backend/target/api-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: PORT
+        value: 8080
