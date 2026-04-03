@@ -1,0 +1,54 @@
+{
+  "app": {
+    "title": "NY Albany Tamil Sangam",
+    "tagline": "Celebrating Tamil culture in Albany, New York"
+  },
+  "nav": {
+    "home": "Home",
+    "events": "Events",
+    "membership": "Membership",
+    "gallery": "Gallery",
+    "news": "News",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile",
+    "admin": "Admin"
+  },
+  "home": {
+    "hero_title": "NY Albany Tamil Sangam",
+    "hero_subtitle": "Celebrating Tamil culture, language, and heritage in Albany, New York",
+    "upcoming_events": "Upcoming Events",
+    "latest_announcements": "Latest Announcements",
+    "view_all_events": "View All Events",
+    "all_announcements": "All Announcements",
+    "get_involved": "Get Involved",
+    "become_member": "Become a Member",
+    "photo_gallery": "Photo Gallery",
+    "contact_us": "Contact Us"
+  },
+  "events": {
+    "title": "Events",
+    "search_placeholder": "Search events...",
+    "all_types": "All Types",
+    "learn_more": "Learn More",
+    "register": "Register Now",
+    "registering": "Registering...",
+    "no_events": "No upcoming events. Check back soon!"
+  },
+  "membership": {
+    "title": "Membership Plans",
+    "join_now": "Join Now",
+    "per_year": "/year",
+    "most_popular": "Most Popular"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot Password?",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?"
+  }
+}
